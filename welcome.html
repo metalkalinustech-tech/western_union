@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffdf2">
+  <link rel="icon" href="profile/western-logo.png">
+  <title>Welcome to Western Union Bank</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #181818;
+      --muted: #71817d;
+      --green: #ffca05;
+      --green-dark: #d8a900;
+      --mint: #fff3bd;
+      --line: #eeeae0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 18% 12%, rgba(255, 224, 74, .20), transparent 32%),
+        radial-gradient(ellipse at 88% 88%, rgba(255, 239, 176, .38), transparent 32%),
+        #fbfaf5;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .page { width: min(100%, 480px); animation: page-in .7s cubic-bezier(.2,.75,.25,1) both; }
+    .brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 26px; font-weight: 750; letter-spacing: -.04em; font-size: 19px; }
+    .brand-mark { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 11px; color: #181818; background: var(--green); box-shadow: 0 5px 12px #ffca0530; }
+    .brand-mark svg { width: 19px; height: 19px; }
+    .card { position: relative; overflow: hidden; padding: 48px 46px 40px; border: 1px solid rgba(225, 233, 228, .9); border-radius: 25px; background: rgba(255,255,255,.94); box-shadow: 0 24px 70px rgba(30, 30, 20, .09), 0 3px 10px rgba(30,30,20,.025); text-align: center; }
+    .card::before { position: absolute; content: ""; width: 220px; height: 220px; left: 50%; top: -174px; transform: translateX(-50%); background: #fff8d9; border-radius: 50%; }
+    .success-icon { position: relative; width: 88px; height: 88px; display: grid; place-items: center; margin: 0 auto 28px; border-radius: 50%; background: var(--mint); animation: pop .65s .2s cubic-bezier(.17,.89,.32,1.35) both; }
+    .success-icon::before, .success-icon::after { position: absolute; content: ""; inset: -9px; border: 1px solid #f0d45f; border-radius: 50%; animation: ring 1s .35s ease-out both; }
+    .success-icon::after { inset: -17px; animation-delay: .48s; }
+    .success-icon svg { width: 42px; height: 42px; color: var(--green); }
+    .eyebrow { margin: 0 0 11px; color: var(--green); font-size: 11px; line-height: 1.4; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(30px, 7vw, 38px); line-height: 1.12; letter-spacing: -.055em; }
+    .intro { max-width: 340px; margin: 15px auto 29px; color: var(--muted); font-size: 15px; line-height: 1.65; }
+    .account-note { display: flex; gap: 12px; align-items: center; margin: 0 0 27px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 13px; background: #fdfcf8; text-align: left; }
+    .note-icon { flex: 0 0 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: var(--green); background: #fff6d5; }
+    .note-icon svg { width: 17px; height: 17px; }
+    .note-copy { color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .note-copy strong { display: block; margin-bottom: 2px; color: var(--ink); font-size: 13px; }
+    .button { min-height: 52px; display: flex; justify-content: center; align-items: center; gap: 10px; border-radius: 12px; color: #181818; background: var(--green); box-shadow: 0 8px 18px #d9aa0038; font-size: 14px; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s; }
+    .button:hover { transform: translateY(-2px); background: var(--green-dark); box-shadow: 0 11px 22px #ffca0536; }
+    .button:focus-visible { outline: 3px solid #f0d45f; outline-offset: 3px; }
+    .button svg { width: 17px; height: 17px; transition: transform .2s; }
+    .button:hover svg { transform: translateX(3px); }
+    .secure { display: flex; justify-content: center; align-items: center; gap: 6px; margin: 20px 0 0; color: #86938f; font-size: 11px; }
+    .secure svg { width: 13px; height: 13px; }
+    .footer { margin-top: 24px; color: #84908c; text-align: center; font-size: 12px; }
+    .footer a { color: var(--green-dark); text-decoration: none; }
+    @keyframes page-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pop { from { opacity: 0; transform: scale(.55); } to { opacity: 1; transform: scale(1); } }
+    @keyframes ring { 0% { opacity: 0; transform: scale(.72); } 45% { opacity: .75; } 100% { opacity: 0; transform: scale(1.2); } }
+    @media (max-width: 520px) { body { padding: 18px; } .card { padding: 40px 24px 32px; border-radius: 21px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brand" aria-label="Western Union Bank">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.8 14.1 9.9 21.2 12l-7.1 2.1L12 21.2l-2.1-7.1L2.8 12l7.1-2.1L12 2.8Z" fill="currentColor"/><circle cx="18.5" cy="5.5" r="1.4" fill="currentColor"/></svg></span>
+      Western Union Bank
+    </div>
+    <section class="card" aria-labelledby="welcome-title">
+      <div class="success-icon" role="img" aria-label="Registration successful">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="m13 24.5 7.2 7.2L35.5 16" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="eyebrow">You’re all set</p>
+      <h1 id="welcome-title">Welcome aboard!</h1>
+      <p class="intro">Your registration is complete. Your new banking journey starts right here.</p>
+      <div class="account-note">
+        <span class="note-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9h16M6 9v9m4-9v9m4-9v9m4-9v9M3 21h18M12 3 3 7h18l-9-4Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="note-copy"><strong>Your account is ready</strong>Sign in to explore your new account and get started.</span>
+      </div>
+      <!-- Replace the href with your bank's sign-in route. -->
+      <a class="button" href="/index.html">Go to sign in <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="secure"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 2.8 8.2 7 10 4.2-1.8 7-5.5 7-10V6l-7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Protected with bank-grade security</p>
+    </section>
+  </main>
+</body>
+</html>
+
+

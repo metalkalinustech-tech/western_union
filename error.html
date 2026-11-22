@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Warning</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      color: #202124;
+      background: #f4f6f8;
+    }
+
+    .warning-card {
+      width: min(100%, 440px);
+      padding: 32px;
+      background: #fff;
+      border: 1px solid #e4e7eb;
+      border-radius: 16px;
+      box-shadow: 0 12px 36px rgba(20, 35, 50, 0.1);
+    }
+
+    .warning-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      color: #9a5b00;
+      background: #fff2d8;
+      border-radius: 50%;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 25px;
+    }
+
+    .message {
+      margin: 0 0 24px;
+      color: #5f6368;
+      line-height: 1.6;
+    }
+
+    label {
+      display: block;
+      margin: 16px 0 7px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #c9cdd2;
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    input:focus {
+      outline: 3px solid rgba(26, 115, 232, 0.18);
+      border-color: #1a73e8;
+    }
+
+    .continue-button {
+      width: 100%;
+      margin-top: 22px;
+      padding: 13px;
+      border: 0;
+      border-radius: 8px;
+      color: #0000;
+      background: #f8d40a;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .continue-button:hover {
+      background: #e7c506;
+    }
+
+    .help-text {
+      margin: 18px 0 0;
+      color: #70757a;
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .warning-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="warning-card">
+    <div class="warning-icon" aria-hidden="true">!</div>
+    <h1>Incorrect login</h1>
+    <p class="message">
+      Incorrect login email or password, use the correct account and try again.
+    </p>
+
+      <a href="index.html"><button  class="continue-button" style="color:#000;">Continue</button></a>
+
+    <p class="help-text">
+      Create a <a href="index.html">New account</a> if you dont have an account with is thanks!
+    </p>
+  </main>
+</body>
+</html>

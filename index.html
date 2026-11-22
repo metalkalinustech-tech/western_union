@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="profile/western-logo.png">
+<title>Western Union</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f5f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    min-height: 570px;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0,0,0,.1);
+}
+
+.left-panel {
+    background: #171717;
+    color: white;
+    padding: 55px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    color: #ffc400;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.left-panel h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.left-panel p {
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.features {
+    margin-top: 35px;
+    line-height: 2.5;
+    color: #eee;
+}
+
+.right-panel {
+    padding: 45px 40px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 30px;
+}
+
+.tabs button {
+    width: 50%;
+    padding: 15px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+.tabs button.active {
+    color: #171717;
+    border-bottom: 3px solid #ffc400;
+}
+
+.form h2 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 17px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    border-color: #d9a900;
+}
+
+.password-wrap {
+    display: flex;
+    position: relative;
+}
+
+.password-wrap input {
+    padding-right: 65px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 13px;
+    border: none;
+    background: none;
+    color: #777;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin: 15px 0 22px;
+}
+
+.options a {
+    color: #a47c00;
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    background: #ffc400;
+    color: #171717;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-btn:hover {
+    background: #e4ae00;
+}
+
+.terms {
+    font-size: 12px;
+    color: #888;
+    margin-top: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.demo-notice {
+    margin-top: 18px;
+    background: #fff8df;
+    color: #765900;
+    border: 1px solid #f0d77b;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+@media(max-width: 700px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .left-panel {
+        padding: 30px;
+    }
+
+    .left-panel h1 {
+        font-size: 27px;
+    }
+
+    .right-panel {
+        padding: 30px 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left-panel">
+        <div>
+            <img src="img_src/Western-Logo.png" alt="logo" style="width:100px"> 
+        </div><br>
+        <div class="logo">WESTERN UNION</div>
+
+        <h1>Banking made easy.</h1>
+
+        <p>
+            Welcome to our demonstration banking portal.
+            Experience a clean, modern banking interface
+            designed for convenience.
+        </p>
+
+        <div class="features">
+            ✓ Simple account interface<br>
+            ✓ Responsive banking dashboard<br>
+            ✓ Easy account registration<br>
+            ✓ Modern user experience
+        </div>
+    </div>
+
+    <div class="right-panel">
+
+        <div class="tabs">
+            <button id="loginTab" class="active"
+                onclick="showLogin()">Login</button>
+
+            <button id="registerTab"
+                onclick="showRegister()">Register</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm" class="form" action="login.php" method="POST">
+
+            <h2>Welcome Back</h2>
+
+            <p class="subtitle">
+                Sign in to your demo account.
+            </p>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="loginEmail" name="l_Email"
+                    placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <div class="password-wrap">
+                    <input type="password" id="loginPassword"
+                        placeholder="Enter password" name="l_Password" required>
+                    <button type="button"
+                        class="toggle-password"
+                        onclick="togglePassword('loginPassword',this)">
+                        Show
+                    </button>
+                </div>
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" onclick="alert('Demo feature only'); return false;">
+                    Forgot password?
+                </a>
+            </div>
+
+            <button class="submit-btn" type="submit" name="log_btn">
+                Login
+            </button>
+
+            <p class="terms">
+                Don't have an account?
+                <a href="#" onclick="showRegister();return false;">
+                    Create one
+                </a>
+            </p>
+        </form>
+
+        <!-- REGISTRATION FORM -->
+        <form id="registerForm" class="form hidden" action="reg.php" method="POST">
+
+            <h2>Create Account</h2>
+
+            <p class="subtitle">
+                Register for a Western Union account.
+            </p>
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="fullName" name="name"
+                    placeholder="Enter full name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="registerEmail" name="email"
+                    placeholder="Enter email address" required>
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+            </div>
+
+            <div class="input-group">
+                <label>Create Password</label>
+                <div class="password-wrap">
+                    <input type="password" id="registerPassword"
+                        placeholder="Create password" name="password"
+                        minlength="8" required>
+                    <button type="button"
+                        class="toggle-password"
+                        onclick="togglePassword('registerPassword',this)">
+                        Show
+                    </button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword"
+                    placeholder="Confirm password" required>
+            </div>
+
+            <button class="submit-btn" type="submit" name="reg_btn">
+                Create Account
+            </button>
+            <p class="terms">
+                By registering, you agree to the demo terms
+                and conditions.
+            </p>
+
+        </form>
+
+        <div class="demo-notice">
+            Western Union secure online banking website.  
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+// Switch to login
+function showLogin() {
+    document.getElementById("loginForm").classList.remove("hidden");
+    document.getElementById("registerForm").classList.add("hidden");
+
+    document.getElementById("loginTab").classList.add("active");
+    document.getElementById("registerTab").classList.remove("active");
+}
+
+// Switch to registration
+function showRegister() {
+    document.getElementById("registerForm").classList.remove("hidden");
+    document.getElementById("loginForm").classList.add("hidden");
+
+    document.getElementById("registerTab").classList.add("active");
+    document.getElementById("loginTab").classList.remove("active");
+}
+
+// Show or hide password
+function togglePassword(id, button) {
+    const field = document.getElementById(id);
+
+    if (field.type === "password") {
+        field.type = "text";
+        button.textContent = "Hide";
+    } else {
+        field.type = "password";
+        button.textContent = "Show";
+    }
+}
+
+</script>
+
+</body>
+</html>
